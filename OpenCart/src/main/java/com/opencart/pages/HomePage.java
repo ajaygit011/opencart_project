@@ -26,6 +26,15 @@ public class HomePage extends BaseClass{
 	
 	@FindBy(xpath="//td//img[@title='MacBook']")
 	WebElement macbookimg;
+	
+	@FindBy(xpath="//a[contains(.,'Logout')]")
+	WebElement logoutlink;
+	
+	
+	@FindBy(xpath="//a[@title='My Account']")
+	WebElement myaccount;
+	
+	
 	public HomePage()
 	{
 		PageFactory.initElements(driver, this);
@@ -56,7 +65,13 @@ public class HomePage extends BaseClass{
 	}
 	
 	
-
+	public LogOutPage getLogoutPage()
+	{
+		myaccount.click();
+		logoutlink.click();
+		
+		return new LogOutPage();
+	}
 	
 	
 	

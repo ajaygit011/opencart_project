@@ -12,6 +12,7 @@
 				<class name="com.opencart.testcases.AddToCartTest"/>	
 				
 				<class name="com.opencart.testcases.RegistrationPageTest"/>
+								<class name="com.opencart.testcases.LogoutPageTest"/>
 				
 		
 	</classes>
