@@ -4,7 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import com.opencart.base.*;
+import com.opencart.base.BaseClass;
 public class IndexPage extends BaseClass {
 	
 	@FindBy(xpath="//img[@title='Your Store']")
@@ -23,6 +23,8 @@ public class IndexPage extends BaseClass {
 	@FindBy(xpath="//ul[@class='dropdown-menu dropdown-menu-right']//a[text()='Register']")
 	WebElement Register;
 	
+	@FindBy(xpath="//input[@name='search']")
+	WebElement searchbutton;
 	public IndexPage()
 	{
 		PageFactory.initElements(driver, this);
@@ -67,12 +69,23 @@ public class IndexPage extends BaseClass {
 		return false;
 		
 	}
-	
+
+	public boolean searchbar()
+	{
+		return searchbutton.isDisplayed();
+	}
 	public LoginPage getLoginPage()
 	{
 		dropdownLInk.click();
 		loginLink.click();
 		return new LoginPage();
 
+	}
+	
+	public RegistrationPage getRegistrationPage()
+	{
+		dropdownLInk.click();
+		Register.click();
+		return new RegistrationPage();
 	}
 }

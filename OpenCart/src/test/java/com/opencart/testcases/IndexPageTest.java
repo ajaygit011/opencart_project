@@ -74,6 +74,16 @@ public class IndexPageTest	extends BaseClass {
 				log.info("test case -7");
 			}
 			
+			@Test(priority=7)
+			public void searchbarValidation()
+			{
+				Assert.assertTrue(index.searchbar());
+				
+				log.info("search - bar");
+			}
+			
+			
+			
 		@AfterMethod
 		public void teardown()
 		{

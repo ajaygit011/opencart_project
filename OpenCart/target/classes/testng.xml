@@ -9,6 +9,10 @@
 		<class name="com.opencart.testcases.ForgotPasswordTest"/>
 				<class name="com.opencart.testcases.LoginPageTest"/>
 			<class name="com.opencart.testcases.HomePageTest"/>		
+				<class name="com.opencart.testcases.AddToCartTest"/>	
+				
+				<class name="com.opencart.testcases.RegistrationPageTest"/>
+				
 		
 	</classes>
 

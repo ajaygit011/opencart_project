@@ -1,12 +1,13 @@
 package com.opencart.pages;
 
-import org.openqa.selenium.ElementNotInteractableException;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.opencart.base.BaseClass;
-import static  com.opencart.utils.OpencartUtils.useJavaSrciptExecutor;
+
+
 public class HomePage extends BaseClass{
 	
 	@FindBy(xpath="//input[@name='search']")
@@ -14,6 +15,7 @@ public class HomePage extends BaseClass{
 	
 	
 	@FindBy(xpath="//div[@id='cart']//button")
+	
 	WebElement addtocart;
 	
 	@FindBy(xpath="//span[@class='input-group-btn']//button")
@@ -54,18 +56,7 @@ public class HomePage extends BaseClass{
 	}
 	
 	
-	public ProductPage productDetails()
-	{
-		try
-		{
-		macbookimg.click();
-		}
-		catch(ElementNotInteractableException e)
-		{
-			useJavaSrciptExecutor(macbookimg);
-		}
-		return new ProductPage();
-	}
+
 	
 	
 	

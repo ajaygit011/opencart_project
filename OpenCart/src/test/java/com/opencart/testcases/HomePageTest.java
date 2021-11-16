@@ -4,6 +4,7 @@ import static com.opencart.utils.OpencartUtils.takeScreenShot;
 
 import java.io.IOException;
 
+import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -33,7 +34,7 @@ public class HomePageTest extends BaseClass{
 		String s1= property.getProperty("email");
 		String s2=property.getProperty("pass");
 		home=login.loginFunction(s1, s2);
-		
+		log=Logger.getLogger("HomePageTest");
 	
 	}
 	
@@ -42,6 +43,7 @@ public class HomePageTest extends BaseClass{
 	{
 		boolean b =home.searchboxvalidation();
 		Assert.assertTrue(b);
+		log.info("search box validation");
 		
 	}
 	
@@ -50,6 +52,7 @@ public class HomePageTest extends BaseClass{
 	{
 		boolean b =home.addtocartvalidation();
 		Assert.assertTrue(b);
+		log.info("addtocart validation");
 		
 	}
 	
@@ -68,7 +71,7 @@ public class HomePageTest extends BaseClass{
 			e.printStackTrace();
 		}
 		
-		
+		log.info("taking screen shot of searched item");
 		//Assert.assertTrue(b);
 		
 	}
