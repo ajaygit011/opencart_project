@@ -1,5 +1,72 @@
 package com.opencart.pages;
 
-public class HomePage {
+import org.openqa.selenium.ElementNotInteractableException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
+import com.opencart.base.BaseClass;
+import static  com.opencart.utils.OpencartUtils.useJavaSrciptExecutor;
+public class HomePage extends BaseClass{
+	
+	@FindBy(xpath="//input[@name='search']")
+	WebElement searchbox;
+	
+	
+	@FindBy(xpath="//div[@id='cart']//button")
+	WebElement addtocart;
+	
+	@FindBy(xpath="//span[@class='input-group-btn']//button")
+	WebElement search;
+	
+	@FindBy(xpath="//a[@title='Shopping Cart']")
+	WebElement addtocartlink;
+	
+	@FindBy(xpath="//td//img[@title='MacBook']")
+	WebElement macbookimg;
+	public HomePage()
+	{
+		PageFactory.initElements(driver, this);
+	}
+	
+	public boolean searchboxvalidation()
+	{
+		boolean b =searchbox.isDisplayed();
+		return b;
+	}
+	
+	public boolean addtocartvalidation()
+	{
+		return addtocart.isDisplayed();
+	}
+	
+	public void search(String product)
+	{
+		searchbox.sendKeys(product);
+		search.click();
+		
+	}
+	
+	public AddToCartPage  cartpage()
+	{
+		addtocartlink.click();
+		return new AddToCartPage();
+	}
+	
+	
+	public ProductPage productDetails()
+	{
+		try
+		{
+		macbookimg.click();
+		}
+		catch(ElementNotInteractableException e)
+		{
+			useJavaSrciptExecutor(macbookimg);
+		}
+		return new ProductPage();
+	}
+	
+	
+	
 }
